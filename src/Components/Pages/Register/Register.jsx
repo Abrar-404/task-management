@@ -4,9 +4,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FcGoogle } from 'react-icons/fc';
 import { GiEnergyArrow } from 'react-icons/gi';
-import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
-import Button from '../Button/Button';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Register = () => {
   const { registerUser, googleSignIn } = useContext(AuthContext);
@@ -211,11 +210,9 @@ const Register = () => {
                 <div className="text-3xl -rotate-45 w-9 text-red-600">
                   <GiEnergyArrow></GiEnergyArrow>
                 </div>
-                <Button>
-                  <button className="text-3xl w-full text-center flex mx-auto">
-                    <FcGoogle></FcGoogle>
-                  </button>
-                </Button>
+                <button className="text-3xl w-full text-center flex mx-auto">
+                  <FcGoogle></FcGoogle>
+                </button>
                 <div className="text-3xl w-9 -rotate-[225deg] text-red-600">
                   <GiEnergyArrow></GiEnergyArrow>
                 </div>
