@@ -7,10 +7,9 @@ import Home from './Components/Pages/Home/Home';
 import AuthProvider from './Components/AuthProvider/AuthProvider';
 import Login from './Components/Pages/Login/Login';
 import Register from './Components/Pages/Register/Register';
-import Hackathons from './Components/Pages/Hackathons/Hackathons';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Dashboard from './Components/Pages/Dashboard/Dashboard';
-
+import CreateTask from './Components/Pages/CreateTask/CreateTask';
 
 const router = createBrowserRouter([
   {
@@ -30,10 +29,10 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: '/hackathons',
+        path: '/createtask',
         element: (
           <PrivateRoute>
-            <Hackathons></Hackathons>
+            <CreateTask></CreateTask>
           </PrivateRoute>
         ),
       },
@@ -45,7 +44,6 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-
     ],
   },
 ]);
