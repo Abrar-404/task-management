@@ -1,5 +1,5 @@
 import '../../Components/Styles/sidebar.css';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -12,6 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const menuItems = [
   { title: 'Profile', icon: faUsers, path: '/profile' },
@@ -23,9 +24,18 @@ const menuItems = [
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const { user } = useContext(AuthContext);
 
   return (
     <div className={cx('sidebar', { 'sidebar-closed': !isOpen })}>
+      <div className="">
+        <img
+          className="rounded-full border-2 w-[40px] h-[40px] mb-2"
+          src={user?.photoURL}
+          alt=""
+        />
+        <h1 className="text-xs mb-10">{user?.displayName}</h1>
+      </div>
       <button className={'sidebar__button'} onClick={() => setIsOpen(!isOpen)}>
         <FontAwesomeIcon icon={faBars} />
       </button>
