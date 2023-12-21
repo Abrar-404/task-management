@@ -1,4 +1,6 @@
+import { async } from '@firebase/util';
 import { ArrowRightIcon, TrashIcon } from '@heroicons/react/24/outline';
+import Swal from 'sweetalert2';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const TaskCard = ({ task, refetch }) => {
@@ -35,6 +37,33 @@ const TaskCard = ({ task, refetch }) => {
     refetch();
   };
 
+  const handleDelete = () => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      color: 'white',
+      background: '#121041',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then(result => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/delete?id=${task._id}`).then(res => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: 'Deleted!',
+              text: 'Your file has been deleted.',
+              icon: 'success',
+            });
+          }
+        });
+      }
+    });
+  };
+
   return (
     <div className="bg-secondary/10 rounded-md p-5">
       <h1
@@ -49,7 +78,7 @@ const TaskCard = ({ task, refetch }) => {
       <div className="flex justify-between mt-3">
         <p>{task?.date}</p>
         <div className="flex gap-3">
-          <button title="Delete">
+          <button onClick={handleDelete} title="Delete">
             <TrashIcon className="h-5 w-5 text-red-500" />
           </button>
           <button title="Update Status">
