@@ -27,6 +27,8 @@ const Content = () => {
           <div className="diff-resizer"></div>
         </div>
       </div>
+
+      <div className="divider divider-secondary">|</div>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum incidunt
         inventore ipsam laboriosam nemo totam voluptates? Accusantium aliquid
