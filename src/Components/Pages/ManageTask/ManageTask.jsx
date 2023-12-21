@@ -13,54 +13,45 @@ const ManageTask = () => {
   console.log(tasks);
   return (
     <div>
-      <div className="">
+      <div className="justify-center mx-auto flex">
         <div className="px-10 pt-4">
-          <div className="flex  gap-5 mt-10">
-            <div className="bg-[#D3DDF9] ">
-              <div className="flex sticky top-0 justify-between bg-[#D3DDF9] p-4 rounded-md ">
-                <div className="flex gap-1">
-                  <div className="w-6 h-6 bg-blue-500 rounded-l-full"></div>
-                  <h1>To-do</h1>
-                </div>
+          <div className="flex  gap-10 mt-10">
+            <div className="relative h-[800px]  w-[400px] overflow-auto">
+              <div className="flex sticky top-0 justify-between bg-[#D3DDF9] p-5 rounded-md mb-3">
+                <h1>To-do</h1>
                 <p className="bg-primary text-white w-6 h-6 grid place-content-center rounded-md">
-                  {tasks?.length}
+                  {tasks.length}
                 </p>
               </div>
-              <div className="space-y-3 relative h-[800px] overflow-auto w-[21rem]">
+              <div className="space-y-3">
                 {tasks.map(item => (
-                  <TaskCard task={item} />
+                  <TaskCard key={item.id} task={item} />
                 ))}
               </div>
             </div>
-            <div className="bg-[#D3DDF9]">
-              <div className="flex sticky top-0 justify-between bg-[#D3DDF9] p-4 rounded-md ">
-                <div className="flex gap-1">
-                  <div className="w-6 h-6 bg-green-500 rounded-l-full"></div>
-                  <h1>Progress</h1>
-                </div>
-                <p className="  bg-primary w-6 h-6 grid place-content-center rounded-md">
-                  {tasks?.length}
+            <div className="relative h-[800px]  w-[400px]   overflow-auto">
+              <div className="flex sticky top-0 justify-between bg-[#D3DDF9] p-5 rounded-md mb-3">
+                <h1>Progress</h1>
+                <p className="bg-primary text-white w-6 h-6 grid place-content-center rounded-md">
+                  {tasks.length}
                 </p>
               </div>
-              <div className="space-y-3 relative h-[800px] overflow-auto w-[21rem]">
+              <div className="space-y-3">
                 {tasks.map(item => (
-                  <TaskCard task={item} />
+                  <TaskCard key={item.id} task={item} />
                 ))}
               </div>
             </div>
-            <div className=" bg-[#D3DDF9]">
-              <div className="flex sticky top-0 justify-between bg-[#D3DDF9] p-4 rounded-md ">
-                <div className="flex gap-1">
-                  <div className="w-6 h-6 bg-green-500 rounded-l-full"></div>
-                  <h1>Completed</h1>
-                </div>
+            <div className="relative h-[800px]  w-[400px]  overflow-auto">
+              <div className="flex sticky top-0 justify-between bg-[#D3DDF9] p-5 rounded-md mb-3">
+                <h1>Completed</h1>
                 <p className="bg-primary text-white w-6 h-6 grid place-content-center rounded-md">
-                  {tasks?.length}
+                  {tasks.length}
                 </p>
               </div>
-              <div className="space-y-3 relative h-[800px] overflow-auto w-[21rem]">
+              <div className="space-y-3">
                 {tasks.map(item => (
-                  <TaskCard task={item} />
+                  <TaskCard key={item.id} task={item} />
                 ))}
               </div>
             </div>
