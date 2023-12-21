@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FcGoogle } from 'react-icons/fc';
 import { GiEnergyArrow } from 'react-icons/gi';
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Register = () => {
@@ -139,7 +139,7 @@ const Register = () => {
               alt=""
             />
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-slate-700 bg-opacity-60">
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-lg ">
             <form onSubmit={handleRegister} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -210,9 +210,9 @@ const Register = () => {
                 <div className="text-3xl -rotate-45 w-9 text-red-600">
                   <GiEnergyArrow></GiEnergyArrow>
                 </div>
-                <button className="text-3xl w-full text-center flex mx-auto">
-                  <FcGoogle></FcGoogle>
-                </button>
+                  <button className="text-3xl w-full text-center flex mx-auto">
+                    <FcGoogle></FcGoogle>
+                  </button>
                 <div className="text-3xl w-9 -rotate-[225deg] text-red-600">
                   <GiEnergyArrow></GiEnergyArrow>
                 </div>
