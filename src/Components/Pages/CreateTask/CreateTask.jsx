@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 // import { useDispatch } from 'react-redux';
@@ -5,10 +6,16 @@ import Swal from 'sweetalert2';
 // import Modal from '../ui/Modal';
 
 const CreateTask = () => {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = data => {
     console.log(data);
+    // const status = 'todo';
+    // const task = {
+    //   data,
+    //   status,
+    // };
+
     fetch('http://localhost:5000/addtask', {
       method: 'POST',
       headers: {
@@ -18,24 +25,29 @@ const CreateTask = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            imageUrl: 'https://i.ibb.co/H4HnLmL/yippee-yay.gif',
-            title: 'WOOHOOO!!!! Welcome To The World!!!!',
-            width: 600,
-            padding: '3em',
-            color: '#7CFC00',
-            background: '#fff url()',
-            backdrop: `
+        console.log(data.data); // Update status locally
+
+        Swal.fire({
+          imageUrl: 'https://i.ibb.co/H4HnLmL/yippee-yay.gif',
+          title: 'WOOHOOO!!!! Welcome To The World!!!!',
+          width: 600,
+          padding: '3em',
+          color: '#7CFC00',
+          background: '#fff url()',
+          backdrop: `
               rgba(0,0,123,0.4)
               top
               no-repeat
             `,
-          });
-        }
+        });
       });
   };
+
+  // useEffect(() => {
+  //   fetch('http://localhost:5000/tasks')
+  //     .then(res => res.json())
+  //     .then(data => setTasks(data));
+  // }, []);
 
   return (
     <div className="max-w-3xl mx-auto mt-20">
@@ -100,4 +112,3 @@ const CreateTask = () => {
 };
 
 export default CreateTask;
-

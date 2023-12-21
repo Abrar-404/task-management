@@ -1,6 +1,7 @@
 import { ArrowRightIcon, TrashIcon } from '@heroicons/react/24/outline';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
-const TaskCard = ({ task }) => {
+const TaskCard = ({ task, refetch }) => {
   // let updatedStatus;
   // if (task.status === 'pending') {
   //   updatedStatus = 'running';
@@ -9,6 +10,7 @@ const TaskCard = ({ task }) => {
   // } else {
   //   updatedStatus = 'archive';
   // }
+  console.log(refetch);
 
   let textColor;
   if (task.priority === 'high') {
@@ -20,6 +22,18 @@ const TaskCard = ({ task }) => {
   } else {
     textColor = 'text-black';
   }
+
+  const axiosSecure = useAxiosSecure();
+  const handleStatus = async e => {
+    e.preventDefault();
+    const status = {
+      status: e.target.value,
+    };
+    console.log(status);
+    const res = await axiosSecure.patch(`/status?id=${task?._id}`, status);
+    console.log(res);
+    refetch();
+  };
 
   return (
     <div className="bg-secondary/10 rounded-md p-5">
@@ -42,6 +56,20 @@ const TaskCard = ({ task }) => {
             <ArrowRightIcon className="h-5 w-5 text-primary" />
           </button>
         </div>
+      </div>
+      <div className="flex justify-center pt-1 ">
+        <select
+          onChange={handleStatus}
+          className="rounded-lg outline-orange-500"
+          name="status"
+          id=""
+          defaultValue={task?.status}
+        >
+          <option disabled>Set Status</option>
+          <option value="todo">Todo</option>
+          <option value="progress">progress</option>
+          <option value="completed">Completed</option>
+        </select>
       </div>
     </div>
   );
