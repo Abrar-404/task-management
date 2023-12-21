@@ -4,13 +4,10 @@
   height: 100vh;
 }
 
-
 .content {
   flex: 1; /* Take up all available space */
   padding: 40px 20px; /* Adjust padding for smaller screens */
 }
-
-
 
 .fade-enter {
   opacity: 0;
@@ -41,7 +38,7 @@
 
 .sidebar {
   min-width: 250px;
-  background: #da1f6c;
+  background: #ff2c9c;
   padding: 20px;
   color: white;
   transition: 0.4s ease-in;
@@ -82,8 +79,6 @@ ul {
   .content {
     padding: 40px 10px;
   }
-
-
 
   .sidebar__listItem {
     margin: 20px 10px;
@@ -127,7 +122,6 @@ ul {
   .content {
     padding: 40px 10px;
   }
-  
 
   .sidebar__listItem {
     margin: 10px 5px;

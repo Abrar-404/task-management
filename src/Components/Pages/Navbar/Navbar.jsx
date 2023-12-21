@@ -20,37 +20,37 @@ const Navbar = () => {
 
   const navs = (
     <>
-      <li className="text-black">
+      <li className="text-white">
         <NavLink to="/">Home</NavLink>
       </li>
       {user ? null : (
         <>
-          <li className="text-black">
+          <li className="text-white">
             <NavLink to="/login">Login</NavLink>
           </li>
-          <li className="text-black">
+          <li className="text-white">
             <NavLink to="/register">Register</NavLink>
           </li>
-          <li className="text-black">
+          <li className="text-white">
             <NavLink to="/hackathons">Hackathons</NavLink>
           </li>
-          <li className="text-black">
+          <li className="text-white">
             <NavLink to="/profile">Profile</NavLink>
           </li>
-          <li className="text-black">
+          <li className="text-white">
             <NavLink to="/dashboard">Dashboard</NavLink>
           </li>
         </>
       )}
       {user && (
         <>
-          <li className="text-black">
+          <li className="text-white">
             <NavLink to="/hackathons">Hackathons</NavLink>
           </li>
-          <li className="text-black">
+          <li className="text-white">
             <NavLink to="/profile">Profile</NavLink>
           </li>
-          <li className="text-black">
+          <li className="text-white">
             <NavLink to="/dashboard">Dashboard</NavLink>
           </li>
         </>
@@ -60,10 +60,10 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar bg-transparent shadow-lg">
+      <div className="navbar bg-[#FF2C9C] shadow-xl">
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabIndex={0} className="btn text-black btn-ghost lg:hidden">
+            <label tabIndex={0} className="btn text-white btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -120,7 +120,7 @@ const Navbar = () => {
             </div>
           ) : (
             <Link to="/login">
-              <button className="btn btn-circle border-none text-xs text-black bg-[#5616C5]">
+              <button className="btn btn-circle border-none text-xs text-white bg-[#983BE9]">
                 Login
               </button>
             </Link>
