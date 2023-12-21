@@ -1,0 +1,150 @@
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.content {
+  flex: 1; /* Take up all available space */
+  padding: 40px 20px; /* Adjust padding for smaller screens */
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 0;
+  transition: opacity 400ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 400ms;
+}
+
+.sidebar__button {
+  background: transparent;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 4px;
+  color: white;
+  transition: 0.3s linear;
+}
+
+.sidebar {
+  min-width: 250px;
+  background: #da1f6c;
+  padding: 20px;
+  color: white;
+  transition: 0.4s ease-in;
+}
+
+.sidebar-closed {
+  min-width: 40px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar__listItem {
+  margin: 30px 10px;
+  display: flex;
+  height: 20px;
+}
+
+.sidebar__listItem span {
+  white-space: nowrap;
+}
+
+.sidebar__icon {
+  margin: 0 15px 0 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    min-width: 150px;
+  }
+
+  .sidebar-closed {
+    min-width: 40px;
+  }
+
+  .content {
+    padding: 40px 10px;
+  }
+
+  .sidebar__listItem {
+    margin: 20px 10px;
+    display: flex;
+    height: 20px;
+    /* margin: 10px 5px; */
+  }
+
+  .sidebar__icon {
+    margin: 0 10px 0 0;
+  }
+  .fade-enter {
+    opacity: 0;
+  }
+
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 400ms;
+  }
+
+  .fade-exit {
+    opacity: 1;
+  }
+
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 400ms;
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  .sidebar {
+    min-width: 120px;
+  }
+
+  .sidebar-closed {
+    min-width: 40px;
+  }
+
+  .content {
+    padding: 40px 10px;
+  }
+
+  .sidebar__listItem {
+    margin: 10px 5px;
+  }
+
+  .sidebar__icon {
+    margin: 0 10px 0 0;
+  }
+  .fade-enter {
+    opacity: 0;
+  }
+
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 400ms;
+  }
+
+  .fade-exit {
+    opacity: 1;
+  }
+
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 400ms;
+  }
+}

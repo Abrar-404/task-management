@@ -11,7 +11,7 @@ const Navbar = () => {
     signOutUser()
       .then(result => {
         naviGate('/');
-        console.log(result.user);
+        console.log(result?.user);
       })
       .catch(error => {
         console.error(error);
@@ -30,6 +30,15 @@ const Navbar = () => {
           </li>
           <li className="text-black">
             <NavLink to="/register">Register</NavLink>
+          </li>
+          <li className="text-black">
+            <NavLink to="/hackathons">Hackathons</NavLink>
+          </li>
+          <li className="text-black">
+            <NavLink to="/profile">Profile</NavLink>
+          </li>
+          <li className="text-black">
+            <NavLink to="/dashboard">Dashboard</NavLink>
           </li>
         </>
       )}
@@ -51,7 +60,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar  bg-transparent shadow-lg">
+      <div className="navbar bg-transparent shadow-lg">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn text-black btn-ghost lg:hidden">

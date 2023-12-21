@@ -1,7 +1,15 @@
+import Menubar from '../../Menubar/Menubar';
+import Content from '../../Sidebar/Content';
+import '../../Styles/sidebar.css';
+import Sidebar from '../../Sidebar/Sidebar';
+
 const Dashboard = () => {
   return (
     <div>
-      <h1>Dashboard</h1>
+      <div className="dashboard">
+        <Sidebar></Sidebar>
+        <Content></Content>
+      </div>
     </div>
   );
 };
