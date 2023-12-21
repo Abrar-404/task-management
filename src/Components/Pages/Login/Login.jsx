@@ -38,6 +38,8 @@ const Login = () => {
   const handleFacebookSignIn = () => {
     facebookSignIn()
       .then(result => {
+        const credential = FacebookAuthProvider.credentialFromResult(result);
+        const accessToken = credential.accessToken;
         Swal.fire({
           imageUrl: `https://i.ibb.co/H4HnLmL/yippee-yay.gif`,
           title: 'WOOHOOO!!!! Welcome To The World!!!!',
@@ -56,6 +58,12 @@ const Login = () => {
       })
       .catch(error => {
         console.error(error);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = FacebookAuthProvider.credentialFromError(error);
       });
   };
 
