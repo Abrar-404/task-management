@@ -1,7 +1,7 @@
-import Menubar from '../../Menubar/Menubar';
 import Content from '../../Sidebar/Content';
 import '../../Styles/sidebar.css';
 import Sidebar from '../../Sidebar/Sidebar';
+
 
 const Dashboard = () => {
   return (
@@ -10,6 +10,7 @@ const Dashboard = () => {
         <Sidebar></Sidebar>
         <Content></Content>
       </div>
+   
     </div>
   );
 };

@@ -11,6 +11,7 @@ import Hackathons from './Components/Pages/Hackathons/Hackathons';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Dashboard from './Components/Pages/Dashboard/Dashboard';
 
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
     ],
   },
 ]);
