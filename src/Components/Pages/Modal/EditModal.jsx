@@ -2,6 +2,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 const EditModal = ({ isOpen, closeModal, item, refetch }) => {
@@ -31,7 +32,14 @@ const EditModal = ({ isOpen, closeModal, item, refetch }) => {
     };
     const res = await axiosSecure.put(`/update?id=${item._id}`, data);
     if (res.data.modifiedCount > 0) {
-      toast.success('Updated successfully');
+      // toast.success('Updated successfully');
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500,
+      });
       closeModal();
     }
     refetch();
