@@ -7,7 +7,7 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 const EditModal = ({ isOpen, closeModal, item, refetch }) => {
   const { register, handleSubmit } = useForm();
   const axiosSecure = useAxiosSecure();
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
 
   const onSubmit = async data => {
     const { data: res } = await axiosSecure.post('/update', report);
@@ -66,23 +66,23 @@ const EditModal = ({ isOpen, closeModal, item, refetch }) => {
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-semibold text-center leading-6 text-orange-500 "
+                    className="text-lg font-semibold text-center leading-6 "
                   >
                     Edit Task
                   </Dialog.Title>
                   <div className="mt-2">
                     <form onSubmit={handleUpdate}>
-                      <label className="text-orange-500">Title: </label>
+                      <label className="">Title: </label>
                       <input
-                        className="outline-orange-500 overflow-hidden bg-orange-200 py-1 px-1"
+                        className=" overflow-hidden bg-[#E2E8F0] py-1 px-1"
                         defaultValue={item.title}
                         type="text"
                         placeholder="Title"
                         name="title"
                       />
-                      <label className="text-orange-500">Description: </label>
+                      <label className="">Description: </label>
                       <textarea
-                        className="outline-orange-500  bg-orange-200 py-1 px-1 mt-2"
+                        className=" bg-[#E2E8F0] py-1 px-1 mt-2"
                         defaultValue={item.description}
                         placeholder="Description"
                         name="description"
@@ -90,9 +90,9 @@ const EditModal = ({ isOpen, closeModal, item, refetch }) => {
                         rows="4"
                       ></textarea>
                       <br />
-                      <label className="text-orange-500 ">Priority: </label>
+                      <label className=" ">Priority: </label>
                       <select
-                        className="rounded-lg mt-2 bg-orange-200 outline-orange-500"
+                        className="rounded-lg mt-2 bg-[#E2E8F0]"
                         name="priority"
                         defaultValue={item.priority}
                       >
@@ -103,7 +103,7 @@ const EditModal = ({ isOpen, closeModal, item, refetch }) => {
                       </select>
                       <label className="text-orange-500 pl-1 ">Deadline:</label>
                       <input
-                        className="rounded-lg mt-2 bg-orange-200 outline-orange-500"
+                        className="rounded-lg mt-2 bg-[#E2E8F0]"
                         type="date"
                         name="deadline"
                         defaultValue={item.deadline}
@@ -111,7 +111,7 @@ const EditModal = ({ isOpen, closeModal, item, refetch }) => {
                       <br />
                       <button
                         type="submit"
-                        className="mt-4 inline-flex justify-center rounded-md border border-transparent bg-orange-100 px-4 py-2 text-sm font-medium text-orange-900 hover:bg-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+                        className="mt-4 inline-flex justify-center rounded-md border border-transparent bg-[#E2E8F0] px-4 py-2 text-sm font-medium text-orange-900 hover:bg-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
                         // onClick={handleTerSend}
                       >
                         Update
