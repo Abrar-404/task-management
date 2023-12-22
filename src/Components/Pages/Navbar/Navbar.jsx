@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import '../../Styles/signout.css';
+import logo from '../../../assets/logo.svg';
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -84,7 +85,7 @@ const Navbar = () => {
               {navs}
             </ul>
           </div>
-          <img className="max-w-[150px] max-h-[80px]" src="" alt="" />
+          <img className="max-w-[150px] max-h-[80px]" src={logo} alt="" />
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navs}</ul>

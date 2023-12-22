@@ -16,7 +16,7 @@ const CreateTask = () => {
     //   status,
     // };
 
-    fetch('http://localhost:5000/addtask', {
+    fetch('https://server-pi-opal-58.vercel.app/addtask', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -44,7 +44,7 @@ const CreateTask = () => {
   };
 
   // useEffect(() => {
-  //   fetch('http://localhost:5000/tasks')
+  //   fetch('https://server-pi-opal-58.vercel.app/tasks')
   //     .then(res => res.json())
   //     .then(data => setTasks(data));
   // }, []);
