@@ -1,22 +1,22 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useQuery } from '@tanstack/react-query';
-import { Helmet } from 'react-helmet';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
-import CreateTaskModal from './../Modal/CreateTaskModals';
 import TaskColumn from './TaskColumn';
-import { AuthContext } from '../../AuthProvider/AuthProvider';
+import CreateTaskModal from './Modals/CreateTaskModal';
+import useAuth from '../../Hooks/useAuth';
+import { Helmet } from 'react-helmet';
 
-const ManageTask = () => {
+const Home = () => {
   const [todo, setTodo] = useState([]);
   const [progress, setProgress] = useState([]);
   const [completed, setCompleted] = useState([]);
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const { data, refetch } = useQuery({
     queryKey: ['all-task', user],
     queryFn: async () => {
-      const res = await axiosSecure(`/addtask?email=${user?.email}`);
+      const res = await axiosSecure(`/tasks?email=${user?.email}`);
       return res.data;
     },
   });
@@ -65,9 +65,20 @@ const ManageTask = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen w-full mx-auto text-white pb-5">
+    <div className="flex flex-col min-h-screen w-full mx-auto bg-orange-200 text-white pb-5">
+      <Helmet>
+        <title>Dashboard | Taskify</title>
+      </Helmet>
+      <div className="flex justify-center py-5 text-xl">
+        <button
+          className="px-3 py-2 bg-orange-400 rounded-md hover:bg-orange-100 hover:text-orange-500"
+          onClick={() => openModal()}
+        >
+          Create Task
+        </button>
+      </div>
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className="flex flex-wrap mx-auto justify-center gap-10 px-8 mt-20">
+        <div className="flex flex-wrap mx-auto justify-center gap-10 px-8 ">
           <Droppable droppableId="todo">
             {provided => (
               <TaskColumn
@@ -110,4 +121,4 @@ const ManageTask = () => {
   );
 };
 
-export default ManageTask;
+export default Home;
