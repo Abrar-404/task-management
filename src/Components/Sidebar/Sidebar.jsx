@@ -9,17 +9,17 @@ import {
   faCogs,
   faServer,
   faCloud,
+  faHome,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const menuItems = [
-  { title: 'Profile', icon: faUsers, path: '/profile' },
-  { title: 'Dashboard', icon: faCompass, path: '/dashboard' },
-  { title: 'Cloud services', icon: faCloud, path: '/cloud-services' },
-  { title: 'Usage data', icon: faCogs, path: '/usage-data' },
-  { title: 'Server list', icon: faServer, path: '/server-list' },
+  { title: 'Home', icon: faHome, path: '/' },
+  { title: 'Profile', icon: faUsers, path: '/dashboard' },
+  { title: 'Manage Task', icon: faCompass, path: '/tasks' },
+  { title: 'Create Task ', icon: faCogs, path: '/createtask' },
 ];
 
 const Sidebar = () => {
