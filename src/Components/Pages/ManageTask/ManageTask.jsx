@@ -16,12 +16,15 @@ const ManageTask = () => {
   const { data, refetch } = useQuery({
     queryKey: ['all-task', user],
     queryFn: async () => {
-      const res = await axiosSecure(`/addtask?email=${user?.email}`);
+      // const res = await axiosSecure(`/addtask?email=${user?.email}`);
+      const res = await axiosSecure(`/addtask`);
       return res.data;
     },
   });
   useEffect(() => {
+    console.log('User:', user);
     if (data) {
+      console.log('Fetched Data:', data);
       const filteredTodo = data.filter(item => item.status === 'todo');
       const filteredProgress = data.filter(item => item.status === 'progress');
       const filteredCompleted = data.filter(

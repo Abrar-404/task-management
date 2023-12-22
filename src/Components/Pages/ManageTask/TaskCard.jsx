@@ -1,5 +1,3 @@
-
-
 import { FaRegClock } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
@@ -22,7 +20,6 @@ const TaskCard = ({ item, refetch, provided }) => {
     }
     refetch();
   };
-
 
   const handleDelete = () => {
     Swal.fire({
@@ -71,7 +68,7 @@ const TaskCard = ({ item, refetch, provided }) => {
         <span
           className={`px-1 rounded-md text-white ${
             item.priority === 'low' && 'bg-green-500'
-          } ${item.priority === 'moderate' && 'bg-blue-500'} ${
+          } ${item.priority === 'medium' && 'bg-blue-500'} ${
             item.priority === 'high' && 'bg-red-500'
           }`}
         >
